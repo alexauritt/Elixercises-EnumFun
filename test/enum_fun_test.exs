@@ -26,4 +26,16 @@ defmodule EnumFunTest do
     list = [13,5,17,8]
     assert EnumFun.MyEnums.filter(list, f) == [5,8]
   end
+
+  test "split" do
+    assert EnumFun.MyEnums.split([1, 2, 3], 2) == {[1,2], [3]}
+
+    # assert EnumFun.MyEnums.split([1, 2, 3], 10) == {[1,2,3], []}
+
+    # assert EnumFun.MyEnums.split([1, 2, 3], 0) == {[], [1,2,3]}
+
+    # assert EnumFun.MyEnums.split([1, 2, 3], -1) == {[1,2], [3]}
+
+    # assert EnumFun.MyEnums.split([1, 2, 3], -5) == {[], [1,2,3]}
+  end  
 end
