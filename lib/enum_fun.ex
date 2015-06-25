@@ -19,10 +19,11 @@ defmodule EnumFun.MyEnums do
     end
   end
 
-  def split(collection, 0), do: [[],collection]
-  def split([ head | tail ], 1), do: [ head, tail ]
+  def split(collection, 0), do: {[],collection}
+  def split([ head | tail ], 1), do: { [head], tail }
+  def split([], count), do: { [], [] }
   def split([ head | tail ], count) do
-    [new_head, new_tail] = split(tail, count - 1)
-    {[head, new_head], new_tail}
+    {front, back} = split(tail, count - 1)
+    {[head | front], back}
   end
 end
