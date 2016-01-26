@@ -25,9 +25,11 @@ defmodule EnumFunTest do
     assert EnumFun.MyEnums.filter(list, f) == [5,8]
   end
 
-  # test "reverse" do
-  #   assert EnumFun.MyEnums.reverse([12,3,4,5]) == [5,4,3,12]
-  # end
+  test "reverse" do
+    assert EnumFun.MyEnums.reverse([12]) == [12]
+    assert EnumFun.MyEnums.reverse([3,12]) == [12,3]
+    assert EnumFun.MyEnums.reverse([12,3,4,5]) == [5,4,3,12]
+  end
 
   test "last1" do
     assert EnumFun.MyEnums.last([3,6,5,7]) == 7
@@ -55,6 +57,11 @@ defmodule EnumFunTest do
 
   test "split4" do
     assert EnumFun.MyEnums.split([1, 2, 3], 10) == {[1,2,3], []}
+  end
+
+  test "chop_last" do
+    assert EnumFun.MyEnums.chop_last([1,6]) == {[1], [6]}
+    # assert EnumFun.MyEnums.chop_last([1,3,54,6]) == {[1,3,54], [6]}
   end
 
   # test "split5" do

@@ -25,11 +25,13 @@ defmodule EnumFun.MyEnums do
 
   def chop_last([]), do: nil
   def chop_last([head | []]), do: {[head], []}
+  def chop_last([ head | tail ]), do: {[head],tail}
 
+  def reverse([]), do: []
   # def reverse([ head | []]), do: [head]
-  # def reverse([ head | tail ]) do
-  #   last(tail) ++ rever
-  # end
+  def reverse([ head | tail ]) do
+    reverse(tail) ++ [head]
+  end
 
   def split(collection, 0), do: {[],collection}
   def split([ head | tail ], 1), do: { [head], tail }
