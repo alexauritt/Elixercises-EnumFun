@@ -19,9 +19,24 @@ defmodule EnumFun.MyEnums do
     end
   end
 
+  def last([]), do: nil
+  def last([head | []]), do: head
+  def last([head | tail]), do: last(tail)
+
+  def chop_last([]), do: nil
+  def chop_last([head | []]), do: {[head], []}
+
+  # def reverse([ head | []]), do: [head]
+  # def reverse([ head | tail ]) do
+  #   last(tail) ++ rever
+  # end
+
   def split(collection, 0), do: {[],collection}
   def split([ head | tail ], 1), do: { [head], tail }
   def split([], count), do: { [], [] }
+  # def split([ head | tail ], count) when count < 0 do
+
+  # end
   def split([ head | tail ], count) do
     {front, back} = split(tail, count - 1)
     {[head | front], back}

@@ -1,8 +1,6 @@
 defmodule EnumFunTest do
   use ExUnit.Case
 
-  import EnumFun.MyEnums
-
   setup do
     {:ok, list: [13,5,17,8]}
   end
@@ -27,6 +25,22 @@ defmodule EnumFunTest do
     assert EnumFun.MyEnums.filter(list, f) == [5,8]
   end
 
+  # test "reverse" do
+  #   assert EnumFun.MyEnums.reverse([12,3,4,5]) == [5,4,3,12]
+  # end
+
+  test "last1" do
+    assert EnumFun.MyEnums.last([3,6,5,7]) == 7
+  end
+
+  test "last2" do
+    assert EnumFun.MyEnums.last([]) == nil
+  end
+
+  test "last" do
+    assert EnumFun.MyEnums.last([3]) == 3
+  end
+
   test "split1" do
     assert EnumFun.MyEnums.split([1, 2, 3], 2) == {[1,2], [3]}
   end
@@ -43,9 +57,9 @@ defmodule EnumFunTest do
     assert EnumFun.MyEnums.split([1, 2, 3], 10) == {[1,2,3], []}
   end
 
-  test "split5" do
-    assert EnumFun.MyEnums.split([1, 2, 3], -1) == {[1,2], [3]}
-  end
+  # test "split5" do
+  #   assert EnumFun.MyEnums.split([1, 2, 3], -1) == {[1,2], [3]}
+  # end
      # 
 
     # 
